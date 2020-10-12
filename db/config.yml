@@ -1,0 +1,29 @@
+production:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: true
+  database: hanami_api_production
+  pool: 10
+  username: postgres
+  password: postgres
+  host: localhost
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: true
+  database: hanami_api_development
+  pool: 10
+  username: postgres
+  password: postgres
+  host: localhost
+
+test: &test
+  adapter: postgresql
+  encoding: utf8
+  reconnect: true
+  database: hanami_api_test
+  pool: 10
+  username: postgres
+  password: postgres
+  host: localhost

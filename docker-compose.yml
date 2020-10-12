@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    # Server is configured for 4GB RAM, 4 CPU
+    command: 'postgres  -c shared_buffers=1GB -c effective_cache_size=3GB -c maintenance_work_mem=256MB -c checkpoint_completion_target=0.7 -c wal_buffers=16MB -c default_statistics_target=100 -c random_page_cost=1.1 -c effective_io_concurrency=200 -c work_mem=2621kB -c min_wal_size=1GB -c max_wal_size=4GB'
+
+volumes:
+  fast-api-data:
