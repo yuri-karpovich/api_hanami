@@ -8,9 +8,9 @@ RSpec.describe Post do
                             content: Faker::Lorem.paragraphs(number: rand(2..8)).join(' '),
                             ip:      Faker::Internet.ip_v4_address.to_s,
                             login:   User.new(login: Faker::Name.unique.last_name) } }
-  let(:new_post_endpoint) { 'api/v1/posts/new' }
-  let(:rate_post_endpoint) { "api/v1/posts/#{subject.id}/rate" }
-  let(:top_posts_endpoint) { '/api/v1/posts/top' }
+  let(:new_post_endpoint) { 'api/v1/posts' }
+  let(:rate_post_endpoint) { "api/v1/posts/#{subject.id}" }
+  let(:top_posts_endpoint) { '/api/v1/posts' }
 
   # Create post via JSON API
   # @return [Rack::MockResponse]
@@ -25,7 +25,7 @@ RSpec.describe Post do
   # @param rating [Fixnum] value drom 1 to 5
   def rate_post(rating)
     mock_request = Rack::MockRequest.new(APP)
-    mock_request.post(rate_post_endpoint, { 'router.params' => { rating: rating }, format: :json })
+    mock_request.put(rate_post_endpoint, { 'router.params' => { rating: rating }, format: :json })
   end
 
   # Get top rated posts via JSON API

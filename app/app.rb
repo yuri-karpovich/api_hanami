@@ -13,7 +13,7 @@ class App < Hanami::API
 
       scope 'posts' do
 
-        post 'new' do
+        post '/' do
           user = User.find_or_create_by!(login: params[:login])
           post = user.posts.create!(title: params[:title], content: params[:content], ip: params[:ip])
 
@@ -23,7 +23,7 @@ class App < Hanami::API
         end
 
 
-        get 'top' do
+        get '/' do
           count = params[:count] || Post::DEFAULT_TOP_COUNT
           posts = Post.top count
 
@@ -31,7 +31,7 @@ class App < Hanami::API
         end
 
 
-        post ':id/rate' do
+        put ':id' do
           post = Post.find(params[:id])
           post.ratings.create!(rating: params[:rating])
 
