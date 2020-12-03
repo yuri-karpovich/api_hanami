@@ -19,7 +19,7 @@ Behaviour: Create post. Create user if not exists
 
 Response: 200 - created post attributes, 422 - in case of error  
 
-> POST http://127.0.0.1:9292/api/v1/posts?login=<user>&title=<title>&ip=<ip>&content=<content>
+> `POST http://127.0.0.1:9292/api/v1/posts?login=<user>&title=<title>&ip=<ip>&content=<content>`
 
 #### Rate Post
 Params: post id, rating
@@ -29,7 +29,7 @@ Behaviour: post has many ratings
 
 Response: 200 - average post rating, 422 - in case of error
 
-> PUT http://localhost:9292/api/v1/posts/<post_id>?rating=<rating>
+> `PUT http://localhost:9292/api/v1/posts/<post_id>?rating=<rating>`
 
  
 #### Top Posts by Rating
@@ -39,7 +39,7 @@ Behaviour: Collection of posts with their attributes should be returned
 
 Response: 200 - N posts with their attributes  
 
-> GET http://localhost:9292/api/v1/posts?count=<count>
+> `GET http://localhost:9292/api/v1/posts?count=<count>`
 
 #### List of IP addresses 
 Params: user logins
@@ -48,7 +48,7 @@ Behaviour: Get all user's IP addresses from his posts. It should be possible to 
 
 Response: 200 - users and their IP addresses
 
-> GET http://localhost:9292/api/v1/users/ip?logins=<login1>%20<login2>
+> `GET http://localhost:9292/api/v1/users/ip?logins=<login1>%20<login2>`
 
 ### Data Seed
 `db/seed.db` file should be created. Import data to the DB using JSON API - start server and use API endpoints.
