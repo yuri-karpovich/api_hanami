@@ -85,7 +85,7 @@ Start server:
 
     bundle exec bin/rackup -q -E production -o 127.0.0.1
     
-Start data seed (~ 15 minutes):
+Start data seed:
 
     bundle exec rake db:seed RACK_ENV=production
     
