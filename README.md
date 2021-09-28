@@ -1,6 +1,6 @@
 # API app example
 ## Objectives
-This is my test task. My goal was to create a concurrent? small and fast JSON API app.
+This is example app. My goal was to create a concurrent? small and fast JSON API app. Requirements:
 - API calls should be faster than 100ms after data seeding (see [Data Seed](#data-seed))
 - DB = PostgreSQL
 - It's allowed to use any gems and ORMs
